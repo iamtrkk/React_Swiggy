@@ -1,0 +1,11 @@
+* React.createElement is used to create js object which later converted in to html.
+const parent = React.createElement('div', {id:'parent'},[React.createElement('h1',{}, 'I am H1 tag')]);
+So 1st parameter is name, 2nd is array of attribute say id, 3rd is array of child tag.
+This is what JSX does in background for us.
+
+* React is a library which can work on a small portion of a project also using 
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render
+    
+* Create React app without command.
+ - Package.json is the configuration for NPM it can be created using NPM init command.
