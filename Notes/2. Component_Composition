@@ -1,0 +1,89 @@
+* component composition is basically rendering a component inside a component.
+
+* In react app we can create component using any extension js, jsx or tsx end of the day
+    a component is basically a javaScript Function which returns jsx.
+
+* To export a component we can use export default componentName so we can import it by giving any 
+    name if dont export by default we have to give exact name of Functional component while import
+    this is called named export import Because in a single file we can have only one default export.
+
+* Also while importing we can import using file extension say import Header from ./Header.jsx
+    or we can also import without extension also if export is not default i.e named export we have to
+    give exact exported component name under {} say import {Header} from ./Header
+
+* When we write inline css in jsx we have to create a object {color:'red'} and assign it to the style using{}
+    Because we know to write js in jsx we use {}.
+
+*Props: As we know Functional components is Basically a javaScript Function so props Basically is
+    arguments to that Function which we can pass as a parameter while calling the Function.
+    Two ways to use props
+    const Component = (props) = {
+        const{name, id} = props; // Destructuring props
+    }
+     const Component = ({id, name}) = {} // Destructuring on the fly
+
+    In Typescript we can statically define type of props object using interface.
+     interface ComponentProps = {
+        name: string
+        id: number[]
+     }
+     const Component:React.FC<ComponentProps> = (props) = {} // statically typed using Typescript
+
+**Config driven UI: Controlling UI according to data from backend. Basically resuable component with
+    dynamic props and config driven app makes a app dynamic.
+    Suppose some feature is available only for premium users so according to the data may be here userType 
+    it will block the UI and behind the scene we will use optional chaining with resuable component to show the feature.
+    Or suppose in my location there are no offers on a product so that product crousal or box
+    will not appear or it will appear differently for different user according to location or other
+    factors may be red bg for Delhi and Blue for Mumbai.
+    
+    *********************Project Explanation**************
+    In our danske bank we allowed to use only basic model to the basic user with chat limit perday
+    but for premium user it has advanced model which can handle large number of tokens.
+    Also there were multiple chat type like in same UI you can get response from GPT and same UI
+    we used for chatbot to ask general company related stuffs like how to raise software request
+    or how to check my leave balance which will be handled by different model it will have completely
+    different chat history so basically we were using our same app for multiple application according to 
+    the config feeded by user from home page it will redirect user to the gpt or support which will be
+    handled by same app with the help of reusable components end of the day but different configurations
+    similary we can add as many models as we want with same code base and some feature willbe there for gpt 
+    some may not be there for support.
+
+* We can use image id to render image using image id which will come from backend so that we will
+  just append that id to a cloud url say cloudnary which swiggy uses so we dont need to store image 
+  to our code base we can use cloud to fetch image it makes app dynamic.
+
+* We add key whenever we render a reusable component using loop say map so that react can uniquely
+    identify that element ad doesnot rerender the whole page on change of one element or addition of 
+    a elemenmt it will identify and rerender that card only soo this small thing make a huge optimiation
+    in Dom render.
+
+* Higher order component (HOC):
+    A Higher-Order Component (HOC) in React is a pattern where a function takes a component as an argument 
+    and returns a new component. HOCs are a popular way to reuse component logic across multiple components 
+    without duplicating code. Essentially, they allow you to wrap a component with additional functionality or data, 
+    enhancing the component's behavior without modifying the original component itself.
+
+* Controlled and Un Controlled components:
+    When a child component has its own state then its is called un controlled component.
+    When a we pass state as props then its called controlled component.
+    for example when we define useState in parent component and pass its value via props
+    its called controlled component.
+    
+* Lifting the state up: 
+    Lifting state up is a concept in React that involves moving the shared state to a common ancestor component, 
+    enabling child components to access and modify that state. This approach is useful when multiple components need 
+    access to the same piece of data or need to react to changes in that data.
+    FOr example we when we map a component for an array of data and pass state via props from parent so if we change A
+    state from this child component then the value or state will change fr only that component like we can take example
+    of accordian where we map accordian component and expands only the clicked one.
+
+    Identify shared state: Find the data that multiple components depend on. Instead of duplicating it across components, 
+    you should "lift" it up to the closest common ancestor.
+
+    Move the state up: Define the state in the ancestor component rather than in the individual child components.
+
+    Pass down via props: Pass the shared state and any necessary handler functions (to update the state) as props to the child components.
+
+    Update state in ancestor: When a child component needs to change the state, it can call the handler function passed via props, 
+    updating the state in the ancestor component.

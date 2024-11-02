@@ -1,0 +1,35 @@
+React Context:
+    React Context is a feature in React that allows you to share values across components without explicitly 
+    passing props down through every level of the component tree. It is especially useful for managing "global" data 
+    or state that many components need to access, such as user information, themes, or application settings.
+
+    How It Works
+    React Context is composed of two main parts:
+
+    Provider: This component wraps around the part of the app where you want the data to be accessible. 
+    It provides the value that will be accessible to all its child components.
+
+    Consumer: Any component within the provider can access the data by using the useContext hook or, 
+    previously, the Context.Consumer component. Most we use useContext to access the value
+
+React works in two layers in sync that is UI layer and data layer so all state management tools like Redux deals in data layer i.e it update UI when data changes.
+
+Redux:
+    It stores the data in a big object which divided in to parts where each part is called slice.
+    Each slice is basically a category which contains data related to specific functionality like user, card, selectedConversation etc.
+    To update the value of a slic we use dispatch which calls a reducer function
+    which updates value in store.
+    To access the value in a component we use selector which subscribe to that slice
+    and provides each value of the slice.
+
+    To configure redux
+    1. Create store using ConfigureStore({}) and create slices
+    2. Wrap the root component with provider and pass store as props created in first step.
+
+    We have a initial state in slices and preloaded state in store so we can decide the initial values in slice and load value from local storage or server in preloaded state inside configure Store.
+    All reducers from each slice combines to make store insice ConfigureStore reducer where we can also provide preloaded state
+    
+    We can provide extra reduer and add cases for pending and fullfilled actions inside reducer lets say to control isLoading true.
+    extraReducers in Redux Toolkit is primarily used to handle actions from external sources, like asynchronous thunks created with createAsyncThunk, or actions from other slices.
+
+    While subscribing to store using selector make sure subscribe only the required slice of store if you will subscribe to the whole store it will be less efficient and will rerender if any value in store changes.

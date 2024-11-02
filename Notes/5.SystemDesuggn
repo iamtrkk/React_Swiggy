@@ -1,0 +1,14 @@
+* If our application has too manu components like 1000+ components what happens is when we build it
+    for production the bundler like parcel compresses it and create a single JS file for browser
+    but it will decrease the efficiency of our application if lots of components are bundled in to a single
+    component.
+    So to avoid it we create multiple bundles for each Features like in swiggy instamart would have
+    separate bundle and food delivery separate.
+    This is achieved using Chunking, LazyLoading, Dynmaic Bundling, Code Splitting, on demand loading.
+    The js file will be loaded in browser in parts.
+
+* React provides lazy hook to achieve this which takes a call back function to import the component and
+    we can use suspence hook to show a fallback UI while lazy script loads in network tab.
+    React, Suspense is a feature that allows components to "wait" for something, typically 
+    asynchronous data, before rendering. It helps in handling asynchronous operations like 
+    data fetching in a declarative way.

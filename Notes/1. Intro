@@ -1,11 +1,126 @@
-* React.createElement is used to create js object which later converted in to html.
-const parent = React.createElement('div', {id:'parent'},[React.createElement('h1',{}, 'I am H1 tag')]);
-So 1st parameter is name, 2nd is array of attribute say id, 3rd is array of child tag.
-This is what JSX does in background for us.
+Core of react is that as soon as Data changes UI should update using Diff Algorithm, 
+   which does efficient DOM manipulation.
+
+****Creating react element***
+    React.createElement is used to create js object which later converted 
+    in to html by react-dom dependency.
+    const parent = React.createElement('div', {id:'parent'},
+    [React.createElement('h1',{}, 'I am H1 tag')]);
+    So 1st parameter is name, 2nd is array of attribute say id, 3rd is array of 
+    child tag. 
+    So if we use above core way to create react element then our code will
+    become very messy with all child elements so to make things simpler facebook
+    developers came with a way to give it html like structure which called JSX.
+    This is what JSX does in background for us.
+
+****What is JSX? ****
+    Basically JSX is not HTML in js, it just looks like html with similar structure.
+    const jsxHeading = <h1> Hi TRK </h1> // this is how we create react elemenmt using JSX.
+    So the JSX is bascially not a valid javaScript for js engine it will throw error in browser.
+    So it is converted to valid JS which browser can understand by a package called BABEL.
+    Also we can render react element in JSX using {jsxHeading} the way we write javaScript in jsx.
+
+    BABEL is installed by Parcel, So bascially BABEL is a javaScript compiler cum transpiler 
+    which converts JSX to the React code which is JS object which we created above using 
+    React.createElement which JS engine inside browsers can understand later that is converted
+    in to HTML element by ReactDOM.
+
+    //Demo react element
+    const parent = React.createElement("div", { id: "parent" }, "I am Trk");
+    const jsxParent = <h1>I am trk</h1>; //Both are same jsx helps creating rect element object like html
 
 * React is a library which can work on a small portion of a project also using 
-    const root = ReactDOM.createRoot(document.getElementById('root'));
+    const root = ReactDOM.createRoot(document.getElementById('parent')); 
+    // here react object will be converted to HTML for browsers.
     root.render
+
+So above mentioned steps are just for good to know how react works in the bg 
+if we inject react using CDN links which is not the efficient way to do.
+So now we will start using NPM dependencies and jsx to create a react app.
     
-* Create React app without command.
- - Package.json is the configuration for NPM it can be created using NPM init command.
+***** Create React app without command.****
+- Package.json is the configuration for NPM it can be created using NPM init command. 
+    It keeps track of version of all the dependency, scripts to run custom commands etc 
+    that will be used in the project.
+
+- There are two types of dependencies in a project Dev dependencies and production dependencies.
+    eg: parcel is a dev dependency which is used to bundling during development phase.
+    npm install -D parcel // Here -D means that we want this package as a Dev dependency only.
+    Now in package.json parcel will appear as 
+    "devDependencies": {
+    "parcel": "^2.12.0" //^ carrot here means it will auto update in minor release but 
+    if we will replace it with ~ tilde then it will also update major automatically 
+    so it is safe to use carrot.
+  }
+
+- Package-lock.json: It contains exact version of the dependencies and sub dependencies
+    that needs to be installed across all the environments that were used during development
+    where as package.json contains version range and does not provide exact version to be 
+    used a user can get latest version available as it is high level info of all the 
+    dependencies required to run project.
+
+- NPM is used to install package and NPX is used to execute a package 
+    npx parcel index.html // entry point of app it will build the app and host it on a server.
+
+- So now install react and react-dom as a dependency to inject react in the project. 
+        npm install react, npm install react-dom.
+
+- Features of Parcel: It is most powerful dependency for development it provides-
+    - Dev build
+    - Local server
+    - HMR = Hot module Replacement i.e it rebuilds and renders changes on every save
+    - Caching for faster subsequent builds
+    - File watching algo i.e watches of change in a file and rebuilds
+    - Image otimization
+    - bundling
+    - Differential building so that it can run on different machines and different browsers.
+    - Diagnostic error in browsers
+    - Tree shaking i.e it will remove unused codes.
+
+- Vite in place of parcel with es build in place of babel is much faster. It does faster HMR.
+
+** React Components **
+ - There are two types of react Components 1. Class based components, 2. Functional Components
+ - Class based components are rarely used now most developrs use Functional components.
+ - Class based uses javaScript classes to create components and Functional based uses javaScript
+    Functions to create components.
+ - Functional Components is javaScript Function which returns JSX or we can say it returns a 
+        react elemenmt.
+ - In class based Component we use javaScript class which extends React.Component and this class
+    has a render method which returns some piece of JSX.
+ - In FC props is passed as a parameter but in Class based props received with the help of constructor
+    with super(props) so that we can access it using this.props
+    Basically super Calls React.Component's constructor.
+ - We create state variable in class using this.state under constructor and create a object of variables
+    we can access these state variable using this.state.variableName and to set the value to rerender
+    we use this.setState provided by react and pass new object of variable which we need to update.
+
+ - In class based component we had 3 life cycle methods to serve the purpuse of useEffect
+    1. componentDidMount
+    2. ComponentDidUpdate
+    3. ComponentWillUnmount
+
+ - componentDidMount(){} which gets called once Component life cycle is completed
+    i.e it will be called once all child Component are also finished its lifecycle its kind of useEffect
+    that we use in FC mostly use for API calls to render the app skeleton them populate it with data.
+    **If we have multiple child components then the react will batch the process it will call 
+    parent constructor
+    parent render
+    child1 constructor
+    child1 render
+    child2 constructor
+    child2 render
+    then child1,child2,parent componentDidMount
+    so here react batches the childs render for optimized DOM manipulation it calls componentDidMount for child
+    once all child are rendered so child1 waits to complete its step and ready to render and then they render together
+    this is called batching up.
+    then there componentDidMount get called and finally parents componentDidMount called.
+    
+    Also there are two more life cycle methods
+    2. ComponentDidUpdate: It is called when any value of component changes like in useEffect after every rerender it is called .
+    3. ComponentWillUnmount: It is called when we move from current component to other component.
+    This unmount phase is achieved in useEffect by using return under useEffect.
+
+    Now all this is covered under useEffect its not equivaled but serves the purpose.
+
+

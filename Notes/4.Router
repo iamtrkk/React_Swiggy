@@ -1,0 +1,19 @@
+* React-Router-Dom: Earlier we use to use anchor tag <a href/> navigate to other pages of the applications
+    but this tag reload the whole application.
+    The concept of React is to Single Page application which does routing without reloading whole page but
+    only the required content which can be done efficiently using React Router Dom  to manipulate the DOM
+    acccording to the change in URL.
+
+    Use to render component based on url it also has a error catching hook if wrong path is called
+    it will provide error details we can use it to render a error page under router ErrorElement
+    createBrowserRouter takes array of object each object is a route to an element.
+
+    It also has a chlder element where we can render children component if want to keep header and
+    other stuff intact and change content only using <outlet/>.
+    This is called client side routing.
+
+    We can also use useParams hook provided by router where we can access the param like id passed in
+    url and according to that we can make dynamic fetch in the related component to that end point.
+    Like we rendered Restaurant page but for each restaurant id was different so we got id using useParams
+    and added it to the fetch url.
+    
