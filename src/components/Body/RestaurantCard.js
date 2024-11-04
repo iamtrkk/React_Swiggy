@@ -2,8 +2,9 @@ import { RES_LOGO, SWIGGY_IMAGE_URL } from "../../utils/constants";
 
 const RestaurantCard = (props) => {
   const { resDetails } = props; // destructuring props here we have one value because I have passed all object
+  // console.log(resDetails)
   return (
-    <div className="w-[220px] h-[380px] bg-slate-200 hover:bg-red-200 rounded-lg p-2">
+    <div data-testid="resCard" className="w-[220px] h-[380px] bg-slate-200 hover:bg-red-200 rounded-lg p-2">
       <img
         className="w-[200px] h-[200px]"
         src={`${SWIGGY_IMAGE_URL}/${resDetails?.cloudinaryImageId}`}

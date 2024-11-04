@@ -10,9 +10,7 @@ const RestaurantMenu = (props) => {
 
   return (
     <div style={{ width: "100%" }}>
-      <Accordion
-      defaultExpanded
-      >
+      <Accordion defaultExpanded>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
@@ -23,13 +21,13 @@ const RestaurantMenu = (props) => {
 
         {items ? (
           <AccordionDetails>
-            {items?.map((item,i) => (
-              <MenuItem key={`item${i+1}`} item={item.card.info} />
+            {items?.map((item, i) => (
+              <MenuItem key={`item${i + 1}`} item={item.card.info} />
             ))}
           </AccordionDetails>
         ) : (
-          categories?.map((item,i) => (
-            <Accordion key={`categories${i+1}`}>
+          categories?.map((item, i) => (
+            <Accordion key={`categories${i + 1}`}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1-content"
@@ -38,8 +36,8 @@ const RestaurantMenu = (props) => {
                 {item.title}
               </AccordionSummary>
               <AccordionDetails>
-                {item.itemCards.map((item) => (
-                  <MenuItem key={`item${i+1}`} item={item.card.info} />
+                {item.itemCards.map((item, i) => (
+                  <MenuItem key={`subItem${i + 1}`} item={item.card.info} />
                 ))}
               </AccordionDetails>
             </Accordion>

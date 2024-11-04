@@ -20,7 +20,7 @@ const Cart = () => {
 
       <div className="w-6/12 m-auto">
         {items.length ? (
-          items.map((item, i) => <MenuItem key={`item${i + 1}`} item={item} />)
+          items.map((item, i) => <MenuItem key={`cartItem${i + 1}`} item={item} />)
         ) : (
           <h1>No Items in Cart</h1>
         )}

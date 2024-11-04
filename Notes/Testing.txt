@@ -1,0 +1,22 @@
+Testing a react application is of three type:
+    Unit Testing: Testing Each component separately.
+    Integration Testing
+    End to End Testing
+
+Setting up testing in our app:
+    Install React Testing Library
+    Install jest
+    install babel dependencies if using parcel bundler
+    configure Babel
+    Configure parcel config file to disable default babel transpilation
+    Jest confighuration
+    install jsDOM lbrary
+    install @babel/preset-react -to make JSX work in test cases
+    include @babel/preset-react inside babel config
+    install @testing-library/jest-dom
+
+Testing runs in jsDOM kind of broweser to run test cases.
+
+//Creating fetch function async call mock because fetch runs inside
+//Browser and in jest-dom its not provided so we have to define the mock fetch function 
+//which is async and return mock data

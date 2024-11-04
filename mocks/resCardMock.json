@@ -1,0 +1,69 @@
+{
+    "id": "405203",
+    "name": "Chai Kulcha Bar",
+    "cloudinaryImageId": "e80b7d9ef467ee9ae527fc252467a460",
+    "areaName": "Sector 32",
+    "costForTwo": "₹200 for two",
+    "cuisines": [
+        "North Indian",
+        "Chinese",
+        "Tandoor",
+        "Snacks",
+        "Indian"
+    ],
+    "avgRating": 4.4,
+    "veg": true,
+    "parentId": "243357",
+    "avgRatingString": "4.4",
+    "totalRatingsString": "7.4K+",
+    "sla": {
+        "deliveryTime": 24,
+        "lastMileTravel": 3.8,
+        "serviceability": "SERVICEABLE",
+        "slaString": "20-25 mins",
+        "lastMileTravelString": "3.8 km",
+        "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+        "nextCloseTime": "2024-11-04 00:00:00",
+        "opened": true
+    },
+    "badges": {},
+    "isOpen": true,
+    "type": "F",
+    "badgesV2": {
+        "entityBadges": {
+            "imageBased": {},
+            "textBased": {},
+            "textExtendedBadges": {}
+        }
+    },
+    "aggregatedDiscountInfoV3": {
+        "header": "₹125 OFF",
+        "subHeader": "ABOVE ₹199",
+        "discountTag": "FLAT DEAL"
+    },
+    "orderabilityCommunication": {
+        "title": {},
+        "subTitle": {},
+        "message": {},
+        "customIcon": {}
+    },
+    "differentiatedUi": {
+        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {},
+            "video": {}
+        }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {},
+    "externalRatings": {
+        "aggregatedRating": {
+            "rating": "--"
+        }
+    },
+    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+}

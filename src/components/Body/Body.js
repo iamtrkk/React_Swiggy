@@ -40,6 +40,7 @@ const Body = () => {
         <div className="p-4">
           <div className="mb-5  ml-12 space-x-5">
             <input
+              data-testid="searchInput" //to test using getByTestId
               className="border"
               placeholder="Search Restaurant"
               onChange={(e) =>
@@ -82,8 +83,8 @@ const Body = () => {
             <span>{`Available Restaurants ${filteredRes.length}`}</span>
           </div>
           <div className="flex flex-wrap ml-12 gap-5">
-            {filteredRes?.map((res) => (
-              <Link key={res.id} to={`/restaurants/${res.id}`}>
+            {filteredRes?.map((res, i) => (
+              <Link key={res.id + i} to={`/restaurants/${res.id}`}>
                 {/* <RestaurantCard resDetails={res} /> */}
                 <HOC resDetails={res} />
               </Link>

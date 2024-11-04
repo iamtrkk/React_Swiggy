@@ -26,9 +26,10 @@ const Restaurant = () => {
           </div>
           <div className="mt-8">
             {menu.map(
-              (item) =>
+              (item, i) =>
                 item.card.card.title && (
                   <RestaurantMenu
+                    key={`resMenu${i + 1}`}
                     title={item.card.card.title}
                     items={item.card.card?.itemCards}
                     categories={item.card.card?.categories}
