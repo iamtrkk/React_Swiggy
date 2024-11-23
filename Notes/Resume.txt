@@ -1,0 +1,27 @@
+Resume points
+Highloght points heading
+Node BFF
+LinkedIn Profile
+build from scratch
+
+Name/Contact
+WorkExp/Project
+college
+skill
+achievement/certifications
+
+
+Interview
+
+Intro:
+Top Down Approach
+Start describing high level details about you and projects
+ex: Hi I am currently working as a senior systems engineer in infosys
+where currently I am associated with Danske Bank UI Team with 4 developers.
+I am leading 2 UI projects which is DanskeBank GenAI portal landing page ...dexcription and DanskeGPT ...description (we can create multiple assistant and launch it on the landing page from where user can access the app ...description) ...skills used like nodeBFF, Redux, etc...Explain major features like file upload 
+Explain 2nd project if not interrupted (Show IBAP as a open source contribution as a fullstack)
+
+At the end ask tech question like: 
+what technologies you are using in the project/ tech stack how you are managing state, which testing library, deployment cycle etc, 
+what projects team is working on
+what is the focus of team

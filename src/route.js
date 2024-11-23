@@ -4,8 +4,8 @@ import About from "./components/About";
 import Body from "./components/Body/Body";
 import Cart from "./components/Cart";
 import Contact from "./components/Contact";
-import Demo from "./components/Demo";
 import Error from "./components/Error";
+import QuizApp from "./components/QuizTest";
 import Restaurant from "./components/RestaurantDetails/Restaurant";
 import Shimmer from "./components/Shimmer";
 import Home from "./Home";
@@ -39,7 +39,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/demo",
-        element: <Demo />,
+        element: <QuizApp />,
       },
       {
         path: "/cart",
