@@ -14,7 +14,7 @@
     const arr = UseState('trk') //also fine
     
     so UseState gives an array with 1st element as the value itself and 2nd is function to update
-    the value as soonas we use that function it rerenders the component
+    the value as soon as we use that function it rerenders the component
 
     So how we can change the value of const using use State so here its not changing the value
     but rerenders the component and this time it assigns different value to that const and simultaneously

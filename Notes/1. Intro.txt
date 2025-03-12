@@ -102,7 +102,7 @@ So now we will start using NPM dependencies and jsx to create a react app.
 
  - componentDidMount(){} which gets called once Component life cycle is completed
     i.e it will be called once all child Component are also finished its lifecycle its kind of useEffect
-    that we use in FC mostly use for API calls to render the app skeleton them populate it with data.
+    that we use in FC mostly use for API calls to render the app skeleton then populate it with data.
     **If we have multiple child components then the react will batch the process it will call 
     parent constructor
     parent render

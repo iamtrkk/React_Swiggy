@@ -65,8 +65,8 @@
     enhancing the component's behavior without modifying the original component itself.
 
 * Controlled and Un Controlled components:
-    When a child component has its own state then its is called un controlled component.
-    When a we pass state as props then its called controlled component.
+    When a child component has its own state then it is called un controlled component.
+    When we pass state as props then its called controlled component.
     for example when we define useState in parent component and pass its value via props
     its called controlled component.
     
