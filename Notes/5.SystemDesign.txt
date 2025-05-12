@@ -1,4 +1,4 @@
-* If our application has too manu components like 1000+ components what happens is when we build it
+* If our application has too many components like 1000+ components what happens is when we build it
     for production the bundler like parcel compresses it and create a single JS file for browser
     but it will decrease the efficiency of our application if lots of components are bundled in to a single
     component.

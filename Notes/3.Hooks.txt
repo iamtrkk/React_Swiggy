@@ -49,50 +49,65 @@
     case3: If we have values in dependency array then it will be called when value of dependency array changes.
     case4: we can also write a return method inside useEffect which is called when component unmounts
          that is when we move to other component its same like ComponentWillUnmount life cycle method of class based component.
-         React uses the return value of useEffect to manage the cleanup process (e.g., for cleaning up side effects like setInterval), 
-         The reason we can't write an async callback function directly inside useEffect is that React's useEffect hook expects the function 
+         React uses the return value of useEffect to manage the cleanup process (e.g., for cleaning up side effects 
+         like setInterval), 
+         The reason we can't write an async callback function directly inside useEffect is that React's useEffect hook expects 
+         the function 
          you pass to it to return either undefined or a cleanup function, not a Promise.
-         An async function always returns a Promise, so if you try to make the callback function of useEffect async, it would return a Promise, 
+         An async function always returns a Promise, so if you try to make the callback function of useEffect async, 
+         it would return a Promise, 
          which could cause unexpected behavior in React.
          But we can write a async function insid the callback function.
 
-* UseMemo: The useMemo hook in React is used to memoize values, which means it stores the result of an expensive computation and only recalculates 
-    it when the dependencies change. This is useful for optimizing performance, especially when dealing with complex calculations or when passing 
-    values as props to components to prevent unnecessary re-renders.Because when it will rerender it will again calculate the value.
-    e.g When we change theme the component will rerender and then again it will do all the calculations although there is no use of recalculation 
-    on rerender so when we use memo it willl onlu recalculate when its dependency chabges and is theme is not a depenendecy it will not recalculate.
+* UseMemo: The useMemo hook in React is used to memoize values, which means it stores the result of an expensive computation 
+    and only recalculates 
+    it when the dependencies change. This is useful for optimizing performance, especially when dealing with complex 
+    calculations or when passing 
+    values as props to components to prevent unnecessary re-renders.Because when it will rerender it will again calculate 
+    the value.
+    e.g When we change theme the component will rerender and then again it will do all the calculations although there is no 
+    use of recalculation 
+    on rerender so when we use memo it willl onlu recalculate when its dependency chabges and is theme is not a 
+    depenendecy it will not recalculate.
     const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
     Parameters
     Callback Function: useMemo takes a function that returns the value you want to memoize.
     Dependencies Array: A list of dependencies that useMemo watches. If any dependency changes, 
     the function is re-executed; otherwise, the cached value is used.
 
-* UseCallBack: The useCallback hook in React is similar to useMemo, but it memoizes functions instead of values. It returns a memoized version of the callback 
-    function, which only changes if one of the dependencies changes. This is particularly useful when passing functions as props to child components to prevent 
-    unnecessary re-renders.
+* UseCallBack: The useCallback hook in React is similar to useMemo, but it memoizes functions instead of values. 
+    It returns a memoized version of the callback function, which only changes if one of the dependencies changes. 
+    This is particularly useful when passing functions as props to child components to prevent unnecessary re-renders.
     const memoizedCallback = useCallback(() => {
                             doSomething(a, b);
                             }, [a, b]);
 
 * Why useCallback is Useful:
-    Passing Functions to Child Components: If you pass a new function to a child component on every render, it will cause the child to re-render. useCallback helps 
-    prevent this by memoizing the function and reusing it until a dependency changes.
-    Optimization: Helps optimize components that rely on function props, especially when combined with React.memo, which memoizes the component itself.
+    Passing Functions to Child Components: If you pass a new function to a child component on every render, 
+    it will cause the child to re-render. useCallback helps prevent this by memoizing the function and reusing it until a 
+    dependency changes.
+    Optimization: Helps optimize components that rely on function props, especially when combined with React.memo, 
+    which memoizes the component itself.
+
 * When to Use useCallback
     When you have functions that are passed down as props to child components, and you want to avoid unnecessary re-renders.
     For event handlers that don’t need to be redefined unless certain dependencies change.                          
-    So both prevents unnecessary rerender i.e it will re render only for a specific state variable that is defined inside dependencies array.
+    So both prevents unnecessary rerender i.e it will re render only for a specific state variable that is defined 
+    inside dependencies array.
 
 * UseRef: 
-    The useRef hook in React provides a way to persist values across renders without causing re-renders when updated. It returns a mutable object (ref) 
-    with a .current property, which can hold any value (like DOM elements or other data) and will remain constant throughout the component's lifecycle.
+    The useRef hook in React provides a way to persist values across renders without causing re-renders when updated. 
+    It returns a mutable object (ref) with a .current property, which can hold any value (like DOM elements or other data) 
+    and will remain constant throughout the component's lifecycle.
         const refContainer = useRef(initialValue);
 
     Common Use Cases
     Accessing DOM Elements: useRef is often used to access or modify DOM elements directly, without triggering a re-render.
-    Storing Mutable Values: It can be used to store any mutable values, like timers or previous states, which need to persist between renders.
+    Storing Mutable Values: It can be used to store any mutable values, like timers or previous states, which need to 
+    persist between renders.
     Avoiding Re-Renders: Updating a ref does not cause the component to re-render, unlike state.
 
     No Re-Renders: Changing ref.current does not trigger a re-render.
     Mutable Object: useRef provides a mutable object that persists across renders.
-    Useful for DOM Manipulation: It's a common way to work with DOM elements in function components, replacing React.createRef in class components.
+    Useful for DOM Manipulation: It's a common way to work with DOM elements in function components, 
+    replacing React.createRef in class components.
